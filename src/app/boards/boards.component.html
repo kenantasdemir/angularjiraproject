@@ -1,0 +1,18 @@
+
+<div style="display: flex;justify-content:center;margin: 30px 0px;">
+    <button mat-raised-button (click)="openNewBoardDialog()" color="primary">Yeni Board Ekle</button>
+</div>
+
+
+<div class="boardlar"  *ngFor="let board of boardsService.boards; let i = index" [routerLink]="'/view-board/'+i">
+    <p class="boardtitle" >
+        {{board.title}}
+
+    </p>
+        <div>
+            <button mat-icon-button (click)="deleteBoard(i)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+</div>
+  

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Yeni Task Ekle Dialog</h2>
+<mat-dialog-content>
+    <form [formGroup]="boardForm">
+        <mat-form-field appearance="fill" style="width: 100;">
+                <mat-label>Başlık</mat-label>
+                <input type="text" matInput formControlName="title">
+                <mat-error *ngIf="boardForm.get('title')?.hasError('required')">
+                    Başlık alanı boş geçilemez.
+                </mat-error>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button (click)="close()" mat-dialog-close color="accent">İptal</button>
+    <button [disabled]="boardForm.invalid" (click)="create()" mat-raised-button color="primary">Oluştur</button>
+</mat-dialog-actions>

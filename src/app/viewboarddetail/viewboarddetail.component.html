@@ -1,0 +1,30 @@
+<!-- <p>
+
+    {{boardTitle}}
+</p> -->
+
+
+<button  class="addcard" (click)="openNewCardDialog()"  mat-raised-button color="primary">Yeni Kart Ekle</button>
+
+<div class="column d-flex justify-content-center">
+
+<mat-card class="d-flex mx-4  w-25 mt-5 " *ngFor="let card of boardService.boards[boardIndex].cards; let i = index;">
+    <mat-card-title class="text-center"> {{card.title}} </mat-card-title>
+    <mat-card-content>
+
+        <div>
+            <mat-checkbox *ngFor="let checkbox of card.checklist; let ikinci = index;" [(ngModel)]="card.status[ikinci]" >
+                {{checkbox}}
+            </mat-checkbox>
+        </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button color="warn" (click)="deleteCard(i)" mat-raised-button>Kartı Sil</button>
+        <button style="margin-left: 10px;" color="primary" (click)="updateCard(i,card)" mat-raised-button>Kartı Güncelle</button>
+    </mat-card-actions>
+</mat-card> 
+
+v
+
+
